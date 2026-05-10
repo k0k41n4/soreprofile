@@ -1,10 +1,10 @@
 import { json } from '@sveltejs/kit';
 import midtransClient from 'midtrans-client';
-import { MIDTRANS_SERVER_KEY } from '$env/static/private';
+import { env } from '$env/dynamic/private';
 
 const snap = new midtransClient.Snap({
   isProduction: false,
-  serverKey: MIDTRANS_SERVER_KEY
+  serverKey: env.MIDTRANS_SERVER_KEY
 });
 
 export async function POST({ request }) {
